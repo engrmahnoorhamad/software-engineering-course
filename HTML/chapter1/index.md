@@ -6,6 +6,7 @@ HTML is the standard markup language for webpages.
 - consists of a series of elements.
 
 **sample_code**
+```
 <!DOCTYPE html>  //declaration defines that this document is an HTML5 document.
 <html>  // this element is the root element of HTML page.
 <head>  // element contain meta inforamtion about the HTML page
@@ -17,14 +18,18 @@ HTML is the standard markup language for webpages.
 <p>my first paragraph.</p>  // paragraph
 </body>
 </html>
+```
+
 
 
 ## what is an HTML element ?
 an HTML element is defined is by a start tag , some content and an end tag:
+```
 <tagname>content goes here...</tagname>
 <h1>...</h1>
 <p>...</p>
 <br>..break tag 
+```
 
 **note**
  some element have no content or closing tags . these are called empty elements. and they have no closing tags.
