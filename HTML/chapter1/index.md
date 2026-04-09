@@ -75,7 +75,7 @@ the <img> tag is used to embed an image in an html page. The src attribute speci
 ### width and height Attributes
 The <img> tag should also contain the width and height attributes, which specify the width and height of the image (in pixels):
 ```
-<img src="img_girl.jpg" width="500" height="600">
+<img src="img_car.jpg" width="500" height="600">
 ```
 **note:**
 The **alt attribute** for the <img> tag specifies an alternate text for an image, if the image for some reason cannot be displayed. This can be due to a slow connection, or an error in the src attribute, or if the user uses a screen reader.
@@ -84,7 +84,7 @@ The **lang attribute** of the <html> tag declares the language of the Web page
 The **title attribute** defines some extra information about an element.
 ## HTML Formatting Elements
 Formatting elements were designed to display special types of text:
-
+```
 <b> - Bold text
 <strong> - Important text
 <i> - Italic text
@@ -95,3 +95,4 @@ Formatting elements were designed to display special types of text:
 <ins> - Inserted text
 <sub> - Subscript text
 <sup> - Superscript text
+```
