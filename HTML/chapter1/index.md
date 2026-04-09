@@ -54,3 +54,44 @@ and content inside the <title> element will shown in the brower's title bar or i
 - 2014 (HTML5): The current standard, introducing native audio/video, semantic tags, and better web application support
 
 
+# HTML Attributes
+- all html elements can have attributes
+- attributes provide additional information about elements
+- attributes are always specifies in the start tag
+- attributes usually come in name/value pairs **like:name="value"**
+
+### href attribute
+the <a> tag defines a hyperlink.The href attribute specifies the URL of the page goes to:
+ ```
+ <a href="https://www.facebook.com">Visit facebook</a>
+
+ ```
+
+### src attribute
+the <img> tag is used to embed an image in an html page. The src attribute specifies the path to the image to be displayed:
+```
+<img src="img_car.jpg">
+```
+### width and height Attributes
+The <img> tag should also contain the width and height attributes, which specify the width and height of the image (in pixels):
+```
+<img src="img_girl.jpg" width="500" height="600">
+```
+**note:**
+The **alt attribute** for the <img> tag specifies an alternate text for an image, if the image for some reason cannot be displayed. This can be due to a slow connection, or an error in the src attribute, or if the user uses a screen reader.
+The **style attribute** is used to add styles to an element, such as color, font, size, and more
+The **lang attribute** of the <html> tag declares the language of the Web page
+The **title attribute** defines some extra information about an element.
+## HTML Formatting Elements
+Formatting elements were designed to display special types of text:
+
+<b> - Bold text
+<strong> - Important text
+<i> - Italic text
+<em> - Emphasized text
+<mark> - Marked text
+<small> - Smaller text
+<del> - Deleted text
+<ins> - Inserted text
+<sub> - Subscript text
+<sup> - Superscript text
