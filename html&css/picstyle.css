@@ -1,0 +1,35 @@
+#main{
+    background-color: aquamarine;
+    /* height: vh; */
+    width: vw;
+}
+.container{
+    background-color: brown;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items:center ;
+
+
+}
+.container1{
+
+    background-color: rgb(209, 209, 231);
+    padding: 10px;
+}
+.container2{
+    background-color: burlywood;
+    padding: 10px;
+}
+.picture{
+    margin: 5px;
+    /* border: 1px solid; */
+    width: 48px;
+
+
+}
+img{
+    width: 100%; 
+    height: auto;
+    border-radius: 100%;
+}
