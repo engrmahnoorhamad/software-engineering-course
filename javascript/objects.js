@@ -1,0 +1,1 @@
+// Objects are variables that can store both values and function
