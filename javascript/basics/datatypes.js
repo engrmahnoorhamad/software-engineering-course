@@ -9,13 +9,13 @@ console.log(3
 console.log("mahnoor")
 
 
-let name = "mahnoor"
-let age = 18
-let isLoggedIn = false
-let state;
+let name = "mahnoor"    //string   // string can be written in double or single qoute
+let age = 18            //number    without quotes
+let isLoggedIn = false   //boolean     true or false
+let city;
 
 // number => 2 to power 53
-// bigint
+// bigint                //const 
 // string => ""
 // boolean => true/false
 // null => standalone value
@@ -24,6 +24,7 @@ let state;
 
 
 // object
-
+console.log(typeof "Pakistan")   //string
+console.log(typeof age ) //18
 console.log(typeof undefined); // undefined
 console.log(typeof null); // object
