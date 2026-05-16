@@ -1,3 +1,9 @@
+// let is a keyword used to declare variables that are block-scoped and can be reassigned
+// 
+
+
+
+
 const add = (a, b) => a + b;
 
 console.log(add(5, 10)); // Output: 15
