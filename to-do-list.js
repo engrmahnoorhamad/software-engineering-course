@@ -21,7 +21,7 @@ const addTask = (title) => {
 // Function to view all tasks
 const viewTasks = () => {
     if (taskList.length === 0) {
-        console.log("📭 Your task list is empty!");
+        console.log(" Your task list is empty!");
         return;
     }
     
@@ -40,9 +40,9 @@ const completeTask = (id) => {
     
     if (foundTask) {
         foundTask.isCompleted = true; // Modifying an object property
-        console.log(`\n🎉 Task ID ${id} marked as completed!`);
+        console.log(`\n Task ID ${id} marked as completed!`);
     } else {
-        console.log(`\n❌ Task with ID ${id} not found.`);
+        console.log(`\n Task with ID ${id} not found.`);
     }
 };
 
