@@ -1,23 +1,23 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="todostyle.css">
     <title>Todo App</title>
 </head>
+
 <body>
-    <div class="app-container">
-        <h1>Tasks / Todo </h1>
-        <form onsubmit="return false;">
-            <div class="input-group">
-                <input type="text" name="todo" id="todo" placeholder="What needs to be done?">
-                <button type="submit" onclick="addTodo()">Add Task</button>
-            </div>
-        </form>
-        <div id="todos"></div>
-    </div>
+    <h1>Todo App</h1>
+    <form onsubmit="return false;" id="todo-form">
+        <input type="text" name="todo" id="todo" placeholder="Enter todo title">
+        <button type="submit" onclick="addTodo()" id="form-submission-btn">
+            Add Todo
+        </button>
+    </form>
+    <div id="todos"></div>
     <script src="todo.js"></script>
 </body>
+
 </html>
