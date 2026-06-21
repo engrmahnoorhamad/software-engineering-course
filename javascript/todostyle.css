@@ -1,151 +1,115 @@
-
+/* Global Reset & Setup */
 * {
     margin: 0;
     padding: 0;
-    box-box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
 body {
-    background-color: #f4f7f6;
+    background-color: #f9f9f9;
     color: #333;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem 1rem;
-    min-height: 100vh;
+    padding: 40px 20px;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 h1 {
-    margin-bottom: 1.5rem;
-    color: #2c3e50;
-    font-size: 2.5rem;
-    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-
+/* Form Styles */
 #todo-form {
     display: flex;
     gap: 10px;
-    width: 100%;
-    max-width: 500px;
-    background: #ffffff;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    margin-bottom: 2rem;
+    margin-bottom: 20px;
 }
 
 #todo {
     flex: 1;
-    padding: 0.75rem 1rem;
-    border: 2px solid #e2e8f0;
-    border-radius: 6px;
-    font-size: 1rem;
-    outline: none;
-    transition: border-color 0.2s ease;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
 }
 
-#todo:focus {
-    border-color: #3498db;
-}
-
-/* Buttons shared base style */
 button {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
     cursor: pointer;
-    font-weight: 600;
-    font-size: 0.95rem;
-    padding: 0.75rem 1.2rem;
-    border: none;
-    border-radius: 6px;
-    transition: all 0.2s ease;
+    font-size: 14px;
 }
 
+button:hover {
+    background-color: #f0f0f0;
+}
+
+/* Specific Form Buttons */
 #form-submission-btn {
-    background-color: #2ecc71;
+    background-color: #4CAF50;
     color: white;
+    border: none;
 }
 
 #form-submission-btn:hover {
-    background-color: #27ae60;
+    background-color: #45a049;
 }
 
-/* Dynamic Update Button */
 #update-todo-btn {
-    background-color: #f39c12;
+    background-color: #008CBA;
     color: white;
-    flex-shrink: 0;
+    border: none;
 }
 
 #update-todo-btn:hover {
-    background-color: #d35400;
+    background-color: #007bb5;
 }
 
-/* Utility class triggered by JS */
-.hide-element {
-    display: none !important;
-}
-
-
+/* Todo List Items */
 #todos {
-    width: 100%;
-    max-width: 500px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
 }
 
-/* Parent container for each list item row */
 .todoItem {
-    background: #ffffff;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    background: #fff;
+    padding: 12px;
+    border: 1px solid #eee;
+    border-radius: 4px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-left: 4px solid #3498db;
-    animation: fadeIn 0.3s ease;
 }
 
-/* The text wrapper inside the item */
 .todoElement {
-    font-size: 1.05rem;
-    color: #2c3e50;
-    word-break: break-word;
-    margin-right: 15px;
     flex: 1;
+    word-break: break-all;
+    margin-right: 10px;
 }
 
-/* Action buttons container */
 .btnContainer {
     display: flex;
-    gap: 8px;
-    flex-shrink: 0;
+    gap: 5px;
 }
 
-/* Action buttons custom styling */
-.todoEditBtn {
-    background-color: #ebf5ff;
-    color: #0076f6;
-    padding: 0.5rem 0.9rem;
-    font-size: 0.85rem;
-}
-
+/* Todo Action Buttons */
 .todoEditBtn:hover {
-    background-color: #0076f6;
-    color: white;
+    background-color: #e7e7e7;
 }
 
 .todoDeleteBtn {
-    background-color: #fdf2f2;
-    color: #de3a3a;
-    padding: 0.5rem 0.9rem;
-    font-size: 0.85rem;
+    color: #cc0000;
 }
 
 .todoDeleteBtn:hover {
-    background-color: #de3a3a;
-    color: white;
+    background-color: #ffe6e6;
 }
 
+/* JavaScript Utility Class */
+.hide-element {
+    display: none !important;
+}
