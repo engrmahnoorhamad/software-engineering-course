@@ -1,7 +1,14 @@
-console.log("JS is live")
+console.log("JS is live");
 let counter = 0;
-const addTodoBtn = document.getElementById("form-submission-btn");
 
+// Element Selectors
+const todoInputElement = document.getElementById("todo");
+const editTodoIdElement = document.getElementById("edit-todo-id");
+const addTodoBtn = document.getElementById("form-submission-btn");
+const updateTodoBtn = document.getElementById("update-todo-btn");
+const todoItemsContainer = document.getElementById("todos");
+
+// Class Names
 const todoItemClassName = "todoItem";
 const deleteBtnClassName = "todoDeleteBtn";
 const todoDivElementClassName = "todoElement";
@@ -9,88 +16,97 @@ const editBtnClassName = "todoEditBtn";
 const buttonsContainerClassName = "btnContainer";
 const hideElementClassName = "hide-element";
 
+// CREATE: Add a new Todo
 function addTodo() {
+    const todoText = todoInputElement.value.trim();
 
-    const todoInputElement = document.getElementById("todo");
-    const todoText = todoInputElement.value;
-
-    if(!todoText) return alert("There must be a value inside the input field")
-
-    const divElement = document.createElement("div"); // <div></div>
-    divElement.innerText = todoText; // <div>{todoText}</div>
-    divElement.className = todoDivElementClassName; // <div class="todoElement">{todoText}</div>
-    counter += 1;
-
-    // unique id
-    const formattedTodoId = "item-" + (counter);
-
-
-    // delete button
-    const deleteBtn = document.createElement("button");// <button></button>
-    deleteBtn.className = deleteBtnClassName; //  <button class="todoDeleteBtn"></button>
-    deleteBtn.innerText = "Delete"; // <button class="todoDeleteBtn">Delete</button>
-
-    // edit button
-    const editBtn = document.createElement("button");// <button></button>
-    editBtn.className = editBtnClassName; //  <button class="todoEditBtn"></button>
-    editBtn.innerText = "Edit"; // <button class="todoEditBtn">Edit</button>
-    
-    const todoItems = document.getElementById("todos");
-    const todoItemDivElement = document.createElement("div"); // <div></div>
-    
-    todoItemDivElement.id = formattedTodoId; // <div id="item-{counter}"></div>
-    todoItemDivElement.className = todoItemClassName; // <div id="item-{counter}" class="todoItem"></div>
-    todoItemDivElement.append(divElement);// <div id="item-{counter}" class="todoItem"><div class="todoElement">{todoText}</div></div>
-
-    const buttonsContainer = document.createElement("div"); // <div></div>
-    buttonsContainer.className = buttonsContainerClassName; // <div class="btnContainer"></div>
-    buttonsContainer.append(deleteBtn) // <div class="btnContainer"><button class="todoDeleteBtn">Delete</button></div>
-    buttonsContainer.append(editBtn) // <div class="btnContainer"><button class="todoDeleteBtn">Delete</button> <button class="todoEditBtn">Edit</button></div>
-
-    todoItemDivElement.append(buttonsContainer) // <div id="item-{counter}" class="todoItem"><div class="todoElement">{todoText}</div><div class="btnContainer"><button class="todoDeleteBtn">Delete</button> <button class="todoEditBtn">Edit</button></div></div>
-    
-    todoItems.append(todoItemDivElement);
-    /*    <div id="todos">
-    <div id="item-{counter}" class="todoItem">
-        <div id="item-{counter}" class="todoItem">
-            <div class="todoElement">{todoText}</div>
-           <div class="btnContainer">
-            <button class="todoDeleteBtn">Delete</button>
-            <button class="todoEditBtn">Edit</button>
-           </div>
-       </div>
-    </div> 
-    */
-   
-   const todoToBeModified = document.getElementById(formattedTodoId);
-   deleteBtn.onclick = () => todoItems.removeChild(todoToBeModified);
-    console.log(todoToBeModified);
-
-   editBtn.onclick = () => { // || OR, ! NOT, && AND
-       addTodoBtn.className = hideElementClassName;
-      const todoForm = document.getElementById("todo-form");
-
-      if(!document.getElementById("update-todo-btn")){
-        const updateButton = document.createElement("button");
-      updateButton.id = "update-todo-btn"
-      updateButton.innerText = "Update Todo";
-      updateButton.onclick = ()=> updateTodo(formattedTodoId)
-      todoForm.append(updateButton)
+    if (!todoText) {
+        return alert("There must be a value inside the input field");
     }
-   }
 
-    todoInputElement.value = "" // empty input field
+    counter += 1;
+    const formattedTodoId = "item-" + counter;
+
+    // Create todo text container
+    const divElement = document.createElement("div"); 
+    divElement.innerText = todoText; 
+    divElement.className = todoDivElementClassName; 
+
+    // Create delete button
+    const deleteBtn = document.createElement("button");
+    deleteBtn.className = deleteBtnClassName; 
+    deleteBtn.innerText = "Delete"; 
+
+    // Create edit button
+    const editBtn = document.createElement("button");
+    editBtn.className = editBtnClassName; 
+    editBtn.innerText = "Edit"; 
+
+    // Create main wrapper item
+    const todoItemDivElement = document.createElement("div"); 
+    todoItemDivElement.id = formattedTodoId; 
+    todoItemDivElement.className = todoItemClassName; 
+    todoItemDivElement.append(divElement);
+
+    // Create actions container
+    const buttonsContainer = document.createElement("div"); 
+    buttonsContainer.className = buttonsContainerClassName; 
+    buttonsContainer.append(deleteBtn);
+    buttonsContainer.append(editBtn);
+
+    todoItemDivElement.append(buttonsContainer);
+    todoItemsContainer.append(todoItemDivElement);
+
+    // Dynamic Click Event Handlers
+    deleteBtn.onclick = () => {
+        // If the item being deleted is currently being edited, reset the form view
+        if (editTodoIdElement.value === formattedTodoId) {
+            resetFormState();
+        }
+        todoItemDivElement.remove();
+    };
+
+    editBtn.onclick = () => {
+        // 1. Populate input box with current text
+        todoInputElement.value = divElement.innerText;
+        // 2. Remember which ID we are editing
+        editTodoIdElement.value = formattedTodoId;
+        // 3. Toggle buttons visibility
+        addTodoBtn.classList.add(hideElementClassName);
+        updateTodoBtn.classList.remove(hideElementClassName);
+        todoInputElement.focus();
+    };
+
+    // Reset input text element
+    todoInputElement.value = ""; 
 }
 
-function updateTodo(id){
-    addTodoBtn.classList.remove(hideElementClassName)
-    const todoInputElement = document.getElementById("todo");
-    const updatedTodoText = todoInputElement.value;
+// UPDATE: Modify an existing Todo
+function updateTodo() {
+    const updatedTodoText = todoInputElement.value.trim();
+    const targetId = editTodoIdElement.value;
 
-    console.warn(id)
-    const divElementToBeModified = document.getElementById(id);
-    divElementToBeModified.firstChild.textContent = updatedTodoText;
+    if (!updatedTodoText) {
+        return alert("There must be a value inside the input field");
+    }
 
-    document.getElementById("update-todo-btn").remove()
-    todoInputElement.value = "" // empty input field
+    // Find the target element container
+    const targetTodoItem = document.getElementById(targetId);
+    
+    if (targetTodoItem) {
+        // Find the inner text node (.todoElement) and change it
+        const textElement = targetTodoItem.querySelector("." + todoDivElementClassName);
+        textElement.innerText = updatedTodoText;
+    }
+
+    // Reset layout view back to default
+    resetFormState();
+}
+
+// Helper utility to switch form UI back to "Add Mode"
+function resetFormState() {
+    todoInputElement.value = "";
+    editTodoIdElement.value = "";
+    addTodoBtn.classList.remove(hideElementClassName);
+    updateTodoBtn.classList.add(hideElementClassName);
 }
